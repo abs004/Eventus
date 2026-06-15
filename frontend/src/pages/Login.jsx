@@ -47,14 +47,14 @@ export default function Login() {
     };
 
     return (
-        <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
+        <div className="min-h-screen bg-slate-50 dark:bg-slate-900 flex items-center justify-center px-6">
 
             {/* Background Blobs */}
-            <div className="absolute top-20 left-20 w-72 h-72 bg-indigo-200 rounded-full blur-3xl opacity-40"></div>
-            <div className="absolute bottom-20 right-20 w-72 h-72 bg-purple-200 rounded-full blur-3xl opacity-40"></div>
+            <div className="absolute top-20 left-20 w-72 h-72 bg-indigo-200 dark:bg-indigo-900/40 rounded-full blur-3xl opacity-40"></div>
+            <div className="absolute bottom-20 right-20 w-72 h-72 bg-purple-200 dark:bg-purple-900/40 rounded-full blur-3xl opacity-40"></div>
 
             {/* Card */}
-            <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 p-10">
+            <div className="relative w-full max-w-lg bg-white dark:bg-slate-800 rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 dark:border-slate-700 p-10">
 
                 {/* Logo + Brand */}
                 <div className="flex flex-col items-center mb-8">
@@ -82,7 +82,7 @@ export default function Login() {
                         Eventus
                     </h1>
 
-                    <p className="text-slate-500 mt-1 text-sm text-center">
+                    <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm text-center">
                         Welcome to Eventus
                     </p>
                 </div>
@@ -91,7 +91,7 @@ export default function Login() {
                 <form onSubmit={handleLogin} className="space-y-5">
 
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                             Username
                         </label>
 
@@ -105,12 +105,12 @@ export default function Login() {
                                     username: e.target.value,
                                 })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition"
                         />
                     </div>
 
                     <div>
-                        <label className="block text-sm font-medium text-slate-700 mb-2">
+                        <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                             Password
                         </label>
 
@@ -124,12 +124,12 @@ export default function Login() {
                                     password: e.target.value,
                                 })
                             }
-                            className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                            className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition"
                         />
                     </div>
 
                     {error && (
-                        <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">
+                        <div className="p-3 rounded-xl bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 text-sm">
                             {error}
                         </div>
                     )}
@@ -144,11 +144,11 @@ export default function Login() {
 
                 </form>
 
-                <p className="mt-6 text-center text-slate-500">
+                <p className="mt-6 text-center text-slate-500 dark:text-slate-400">
                     Don't have an account?{" "}
                     <Link
                         to="/register"
-                        className="text-indigo-600 font-medium hover:text-indigo-700"
+                        className="text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300"
                     >
                         Register
                     </Link>

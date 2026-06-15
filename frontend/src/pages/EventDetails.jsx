@@ -6,12 +6,12 @@ import { getEvent, registerForEvent, getMyRegistrations } from "../services/even
 function InfoItem({ icon, label, value }) {
     return (
         <div className="flex items-start gap-3">
-            <div className="w-8 h-8 bg-indigo-50 rounded-lg flex items-center justify-center shrink-0">
+            <div className="w-8 h-8 bg-indigo-50 dark:bg-indigo-900/40 rounded-lg flex items-center justify-center shrink-0">
                 {icon}
             </div>
             <div>
-                <div className="text-[11px] text-gray-400 uppercase tracking-wide mb-0.5">{label}</div>
-                <div className="text-sm font-medium text-gray-900">{value}</div>
+                <div className="text-[11px] text-gray-400 dark:text-slate-500 uppercase tracking-wide mb-0.5">{label}</div>
+                <div className="text-sm font-medium text-gray-900 dark:text-white">{value}</div>
             </div>
         </div>
     );
@@ -98,22 +98,22 @@ export default function EventDetails() {
 
     if (loading) {
         return (
-            <div className="min-h-screen bg-[#f8f9fc]">
+            <div className="min-h-screen bg-[#f8f9fc] dark:bg-slate-900">
                 {/* Header skeleton */}
-                <div className="w-full h-[260px] bg-gray-200 animate-pulse" />
+                <div className="w-full h-[260px] bg-gray-200 dark:bg-slate-700 animate-pulse" />
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8">
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
                         <div className="lg:col-span-2 space-y-5">
-                            <div className="bg-white rounded-2xl border border-gray-100 p-6 space-y-3">
-                                <div className="h-5 bg-gray-100 rounded animate-pulse w-1/3" />
-                                <div className="h-4 bg-gray-100 rounded animate-pulse w-full" />
-                                <div className="h-4 bg-gray-100 rounded animate-pulse w-4/5" />
-                                <div className="h-4 bg-gray-100 rounded animate-pulse w-3/5" />
+                            <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 p-6 space-y-3">
+                                <div className="h-5 bg-gray-100 dark:bg-slate-700 rounded animate-pulse w-1/3" />
+                                <div className="h-4 bg-gray-100 dark:bg-slate-700 rounded animate-pulse w-full" />
+                                <div className="h-4 bg-gray-100 dark:bg-slate-700 rounded animate-pulse w-4/5" />
+                                <div className="h-4 bg-gray-100 dark:bg-slate-700 rounded animate-pulse w-3/5" />
                             </div>
                         </div>
-                        <div className="bg-white rounded-2xl border border-gray-100 p-6 space-y-3">
-                            <div className="h-8 bg-gray-100 rounded animate-pulse w-1/2" />
-                            <div className="h-10 bg-gray-100 rounded-xl animate-pulse w-full mt-4" />
+                        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 p-6 space-y-3">
+                            <div className="h-8 bg-gray-100 dark:bg-slate-700 rounded animate-pulse w-1/2" />
+                            <div className="h-10 bg-gray-100 dark:bg-slate-700 rounded-xl animate-pulse w-full mt-4" />
                         </div>
                     </div>
                 </div>
@@ -123,14 +123,14 @@ export default function EventDetails() {
 
     if (!event) {
         return (
-            <div className="min-h-screen bg-[#f8f9fc] flex flex-col items-center justify-center py-32 text-center px-4">
-                <div className="w-16 h-16 bg-gray-100 rounded-2xl flex items-center justify-center mb-4">
-                    <svg className="w-7 h-7 text-gray-300" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <div className="min-h-screen bg-[#f8f9fc] dark:bg-slate-900 flex flex-col items-center justify-center py-32 text-center px-4">
+                <div className="w-16 h-16 bg-gray-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center mb-4">
+                    <svg className="w-7 h-7 text-gray-300 dark:text-slate-600" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                         <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                     </svg>
                 </div>
-                <h2 className="text-xl font-semibold text-gray-900 mb-2">Event not found</h2>
-                <p className="text-gray-500 text-sm mb-6">This event doesn't exist or may have been removed.</p>
+                <h2 className="text-xl font-semibold text-gray-900 dark:text-white mb-2">Event not found</h2>
+                <p className="text-gray-500 dark:text-slate-400 text-sm mb-6">This event doesn't exist or may have been removed.</p>
                 <button
                     onClick={() => navigate("/")}
                     className="h-9 px-5 bg-indigo-600 text-white text-sm font-medium rounded-lg hover:bg-indigo-700 transition-colors flex items-center gap-1.5"
@@ -145,7 +145,7 @@ export default function EventDetails() {
     }
 
     return (
-        <div className="min-h-screen bg-[#f8f9fc]">
+        <div className="min-h-screen bg-[#f8f9fc] dark:bg-slate-900">
 
             {/* Banner header */}
             <div className="w-full relative overflow-hidden" style={{ background: "linear-gradient(140deg, #1e1b4b 0%, #312e81 45%, #4c1d95 100%)", minHeight: "200px" }}>
@@ -190,14 +190,14 @@ export default function EventDetails() {
                     <div className="lg:col-span-2 space-y-5">
 
                         {/* About */}
-                        <section className="bg-white rounded-2xl border border-gray-100 p-6">
-                            <h2 className="font-semibold text-gray-900 mb-4">About this event</h2>
-                            <p className="text-gray-600 text-sm leading-relaxed">{event.description}</p>
+                        <section className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 p-6">
+                            <h2 className="font-semibold text-gray-900 dark:text-white mb-4">About this event</h2>
+                            <p className="text-gray-600 dark:text-slate-400 text-sm leading-relaxed">{event.description}</p>
                         </section>
 
                         {/* Event details */}
-                        <section className="bg-white rounded-2xl border border-gray-100 p-6">
-                            <h2 className="font-semibold text-gray-900 mb-5">Event details</h2>
+                        <section className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 p-6">
+                            <h2 className="font-semibold text-gray-900 dark:text-white mb-5">Event details</h2>
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                                 <InfoItem
                                     label="Date"
@@ -226,16 +226,16 @@ export default function EventDetails() {
                     <div className="space-y-4">
 
                         {/* Registration card */}
-                        <div className="bg-white rounded-2xl border border-gray-100 p-6 sticky top-[72px]">
+                        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 p-6 sticky top-[72px]">
 
                             {isRegistered && (
-                                <div className="flex items-start gap-2.5 mb-5 bg-emerald-50 border border-emerald-200 rounded-xl px-4 py-3">
-                                    <svg className="w-4 h-4 text-emerald-600 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <div className="flex items-start gap-2.5 mb-5 bg-emerald-50 dark:bg-emerald-900/20 border border-emerald-200 dark:border-emerald-800 rounded-xl px-4 py-3">
+                                    <svg className="w-4 h-4 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                                     </svg>
                                     <div>
-                                        <div className="text-sm font-medium text-emerald-800">You're registered!</div>
-                                        <div className="text-xs text-emerald-600 mt-0.5">Check My Registrations for details</div>
+                                        <div className="text-sm font-medium text-emerald-800 dark:text-emerald-300">You're registered!</div>
+                                        <div className="text-xs text-emerald-600 dark:text-emerald-400 mt-0.5">Check My Registrations for details</div>
                                     </div>
                                 </div>
                             )}
@@ -259,14 +259,14 @@ export default function EventDetails() {
                             )}
 
                             <div className="mb-5">
-                                <div className="flex items-center gap-2 text-xs text-gray-500 mb-1">
-                                    <svg className="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-slate-400 mb-1">
+                                    <svg className="w-3.5 h-3.5 text-gray-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                                     </svg>
                                     {formatDate(event.date)}
                                 </div>
-                                <div className="flex items-center gap-2 text-xs text-gray-500">
-                                    <svg className="w-3.5 h-3.5 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                                <div className="flex items-center gap-2 text-xs text-gray-500 dark:text-slate-400">
+                                    <svg className="w-3.5 h-3.5 text-gray-400 dark:text-slate-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                                     </svg>
@@ -293,7 +293,7 @@ export default function EventDetails() {
                             ) : (
                                 <button
                                     onClick={() => navigate("/my-registrations")}
-                                    className="w-full h-11 rounded-xl text-sm font-medium bg-gray-100 text-gray-700 hover:bg-gray-200 transition-colors flex items-center justify-center gap-2"
+                                    className="w-full h-11 rounded-xl text-sm font-medium bg-gray-100 dark:bg-slate-700 text-gray-700 dark:text-slate-200 hover:bg-gray-200 dark:hover:bg-slate-600 transition-colors flex items-center justify-center gap-2"
                                 >
                                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                         <path strokeLinecap="round" strokeLinejoin="round" d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z" />
@@ -302,7 +302,7 @@ export default function EventDetails() {
                                 </button>
                             )}
 
-                            <div className="mt-3 flex items-center justify-center gap-1.5 text-xs text-gray-400">
+                            <div className="mt-3 flex items-center justify-center gap-1.5 text-xs text-gray-400 dark:text-slate-500">
                                 <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                                 </svg>
@@ -311,11 +311,11 @@ export default function EventDetails() {
                         </div>
 
                         {/* Share card */}
-                        <div className="bg-white rounded-2xl border border-gray-100 p-5">
-                            <h3 className="text-sm font-medium text-gray-900 mb-3">Share this event</h3>
+                        <div className="bg-white dark:bg-slate-800 rounded-2xl border border-gray-100 dark:border-slate-700 p-5">
+                            <h3 className="text-sm font-medium text-gray-900 dark:text-white mb-3">Share this event</h3>
                             <button
                                 onClick={handleCopyLink}
-                                className="w-full h-9 border border-gray-200 rounded-lg text-sm text-gray-600 hover:bg-gray-50 hover:border-gray-300 transition-colors flex items-center justify-center gap-2"
+                                className="w-full h-9 border border-gray-200 dark:border-slate-600 rounded-lg text-sm text-gray-600 dark:text-slate-300 hover:bg-gray-50 dark:hover:bg-slate-700 hover:border-gray-300 dark:hover:border-slate-500 transition-colors flex items-center justify-center gap-2"
                             >
                                 {copied ? (
                                     <>
@@ -339,10 +339,10 @@ export default function EventDetails() {
             </div>
 
             {/* Footer */}
-            <footer className="border-t border-gray-200 bg-white mt-12">
+            <footer className="border-t border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 mt-12">
                 <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <span className="font-semibold text-gray-900 text-sm">Eventus</span>
-                    <p className="text-xs text-gray-400">© 2026 Eventus. All rights reserved.</p>
+                    <span className="font-semibold text-gray-900 dark:text-white text-sm">Eventus</span>
+                    <p className="text-xs text-gray-400 dark:text-slate-500">© 2026 Eventus. All rights reserved.</p>
                 </div>
             </footer>
         </div>

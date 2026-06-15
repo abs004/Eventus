@@ -86,14 +86,14 @@ export default function Register() {
   const [error, setError] = useState("");
 
   return (
-    <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
+    <div className="min-h-screen bg-slate-50 dark:bg-slate-900 flex items-center justify-center px-6">
 
       {/* Background Blobs */}
-      <div className="absolute top-20 left-20 w-72 h-72 bg-indigo-200 rounded-full blur-3xl opacity-40"></div>
-      <div className="absolute bottom-20 right-20 w-72 h-72 bg-purple-200 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute top-20 left-20 w-72 h-72 bg-indigo-200 dark:bg-indigo-900/40 rounded-full blur-3xl opacity-40"></div>
+      <div className="absolute bottom-20 right-20 w-72 h-72 bg-purple-200 dark:bg-purple-900/40 rounded-full blur-3xl opacity-40"></div>
 
       {/* Card */}
-      <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-xl border border-slate-100 p-10">
+      <div className="relative w-full max-w-lg bg-white dark:bg-slate-800 rounded-3xl shadow-xl border border-slate-100 dark:border-slate-700 p-10">
 
         {/* Logo + Brand */}
         <div className="flex flex-col items-center mb-6">
@@ -119,7 +119,7 @@ export default function Register() {
           >
             Eventus
           </h1>
-          <p className="text-slate-500 mt-1 text-sm text-center">
+          <p className="text-slate-500 dark:text-slate-400 mt-1 text-sm text-center">
             Create your Eventus account
           </p>
         </div>
@@ -133,8 +133,8 @@ export default function Register() {
                 style={{
                   background: step >= s
                     ? "linear-gradient(to right, #4f46e5, #9333ea)"
-                    : "#e2e8f0",
-                  color: step >= s ? "white" : "#94a3b8",
+                    : document.documentElement.classList.contains('dark') ? "#334155" : "#e2e8f0",
+                  color: step >= s ? "white" : document.documentElement.classList.contains('dark') ? "#64748b" : "#94a3b8",
                 }}
               >
                 {step > s ? (
@@ -149,7 +149,7 @@ export default function Register() {
                   style={{
                     background: step > s
                       ? "linear-gradient(to right, #4f46e5, #9333ea)"
-                      : "#e2e8f0",
+                      : document.documentElement.classList.contains('dark') ? "#334155" : "#e2e8f0",
                   }}
                 />
               )}
@@ -160,12 +160,12 @@ export default function Register() {
         {/* Step 1 — Username & Email */}
         {step === 1 && (
           <form onSubmit={handleNext} className="space-y-4">
-            <p className="text-sm font-medium text-slate-400 mb-4 -mt-2">
+            <p className="text-sm font-medium text-slate-400 dark:text-slate-500 mb-4 -mt-2">
               Step 1 of 2 — Account details
             </p>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Username
               </label>
               <input
@@ -174,12 +174,12 @@ export default function Register() {
                 placeholder="johndoe"
                 value={formData.username}
                 onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Email Address
               </label>
               <input
@@ -188,7 +188,7 @@ export default function Register() {
                 placeholder="you@example.com"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
+                className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 transition"
               />
             </div>
 
@@ -204,12 +204,12 @@ export default function Register() {
         {/* Step 2 — Password */}
         {step === 2 && (
           <form onSubmit={handleRegister} className="space-y-4">
-            <p className="text-sm font-medium text-slate-400 mb-4 -mt-2">
+            <p className="text-sm font-medium text-slate-400 dark:text-slate-500 mb-4 -mt-2">
               Step 2 of 2 — Secure your account
             </p>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Password
               </label>
               <div className="relative">
@@ -222,12 +222,12 @@ export default function Register() {
                     setPassword(e.target.value);
                     setFormData({ ...formData, password: e.target.value });
                   }}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 pr-12"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 pr-12 transition"
                 />
                 <button
                   type="button"
                   onClick={() => setShowPassword(!showPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition"
                 >
                   {showPassword ? (
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -251,7 +251,7 @@ export default function Register() {
                         key={i}
                         className="h-1 flex-1 rounded-full transition-all duration-300"
                         style={{
-                          backgroundColor: i <= strength ? strengthColor : "#e2e8f0",
+                          backgroundColor: i <= strength ? strengthColor : document.documentElement.classList.contains('dark') ? "#334155" : "#e2e8f0",
                         }}
                       />
                     ))}
@@ -262,11 +262,11 @@ export default function Register() {
                 </div>
               )}
 
-              <p className="text-xs text-slate-400 mt-1">Minimum 6 characters</p>
+              <p className="text-xs text-slate-400 dark:text-slate-500 mt-1">Minimum 6 characters</p>
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-2">
+              <label className="block text-sm font-medium text-slate-700 dark:text-slate-300 mb-2">
                 Confirm Password
               </label>
               <div className="relative">
@@ -276,12 +276,12 @@ export default function Register() {
                   placeholder="••••••••"
                   value={formData.confirmPassword}
                   onChange={(e) => setFormData({ ...formData, confirmPassword: e.target.value })}
-                  className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500 pr-12"
+                  className="w-full px-4 py-3 rounded-xl border border-slate-200 dark:border-slate-600 bg-white dark:bg-slate-700 text-slate-900 dark:text-white placeholder-slate-400 dark:placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 dark:focus:ring-indigo-400 pr-12 transition"
                 />
                 <button
                   type="button"
                   onClick={() => setShowConfirmPassword(!showConfirmPassword)}
-                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 hover:text-slate-600 transition"
+                  className="absolute right-4 top-1/2 -translate-y-1/2 text-slate-400 dark:text-slate-500 hover:text-slate-600 dark:hover:text-slate-300 transition"
                 >
                   {showConfirmPassword ? (
                     <svg xmlns="http://www.w3.org/2000/svg" className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -309,13 +309,13 @@ export default function Register() {
               )}
             </div>
             {success && (
-              <div className="p-3 rounded-xl bg-green-50 border border-green-200 text-green-600 text-sm">
+              <div className="p-3 rounded-xl bg-green-50 dark:bg-green-900/30 border border-green-200 dark:border-green-800 text-green-600 dark:text-green-400 text-sm">
                 {success}
               </div>
             )}
 
             {error && (
-              <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">
+              <div className="p-3 rounded-xl bg-red-50 dark:bg-red-900/30 border border-red-200 dark:border-red-800 text-red-600 dark:text-red-400 text-sm">
                 {error}
               </div>
             )}
@@ -324,7 +324,7 @@ export default function Register() {
               <button
                 type="button"
                 onClick={handleBack}
-                className="w-1/3 py-3 rounded-xl font-medium border border-slate-200 text-slate-600 hover:bg-slate-50 transition"
+                className="w-1/3 py-3 rounded-xl font-medium border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 transition"
               >
                 Back
               </button>
@@ -338,11 +338,11 @@ export default function Register() {
           </form>
         )}
 
-        <p className="mt-6 text-center text-slate-500">
+        <p className="mt-6 text-center text-slate-500 dark:text-slate-400">
           Already have an account?{" "}
           <Link
             to="/login"
-            className="text-indigo-600 font-medium hover:text-indigo-700"
+            className="text-indigo-600 dark:text-indigo-400 font-medium hover:text-indigo-700 dark:hover:text-indigo-300"
           >
             Sign In
           </Link>
