@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-vhfdly44=p%mv&9sn*j69$+5tt&qv6l8o=$v5&y4upem7v+*uv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -141,6 +141,6 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
-CORS_ALLOWED_ORIGINS = [
-    "http://localhost:5173",
-]
+#CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]  
+
+CORS_ALLOW_ALL_ORIGINS = True
