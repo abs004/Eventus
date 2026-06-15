@@ -11,34 +11,14 @@ export const getEvent = async (id) => {
 };
 
 export const registerForEvent = async (id) => {
-
-    const token = localStorage.getItem("access");
-
     const response = await api.post(
-        `/events/${id}/register/`,
-        {},
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }
+        `/events/${id}/register/`
     );
 
     return response.data;
 };
 
 export const getMyRegistrations = async () => {
-
-    const token = localStorage.getItem("access");
-
-    const response = await api.get(
-        "/my-registrations/",
-        {
-            headers: {
-                Authorization: `Bearer ${token}`,
-            },
-        }
-    );
-
+    const response = await api.get("/my-registrations/");
     return response.data;
 };

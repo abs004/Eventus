@@ -29,6 +29,7 @@ export default function Login() {
 
             localStorage.setItem("access", data.access);
             localStorage.setItem("refresh", data.refresh);
+            localStorage.setItem("username", formData.username);
 
             navigate("/");
 
@@ -37,7 +38,7 @@ export default function Login() {
             if (err.response?.data?.detail) {
                 setError(err.response.data.detail);
             } else {
-                setError("Login failed");
+                setError("Unable to sign in. Please try again.");
             }
 
         } finally {
@@ -82,7 +83,7 @@ export default function Login() {
                     </h1>
 
                     <p className="text-slate-500 mt-1 text-sm text-center">
-                        Welcome back to Eventus
+                        Welcome to Eventus
                     </p>
                 </div>
 

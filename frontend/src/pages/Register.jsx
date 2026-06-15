@@ -72,7 +72,7 @@ export default function Register() {
         const firstError = Object.values(errors)[0];
         setError(Array.isArray(firstError) ? firstError[0] : firstError);
       } else {
-        setError("Registration failed");
+        setError("Unable to create account. Please try again.");
       }
 
     } finally {
