@@ -144,3 +144,7 @@ SIMPLE_JWT = {
 #CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]  
 
 CORS_ALLOW_ALL_ORIGINS = True
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://eventus-grda.onrender.com",
+]
