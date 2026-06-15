@@ -1,7 +1,50 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useState } from "react";
 import logo from "../assets/logo.png";
+import { loginUser } from "../services/auth";
 
 export default function Login() {
+    const navigate = useNavigate();
+
+    const [formData, setFormData] = useState({
+        username: "",
+        password: "",
+    });
+
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState("");
+
+    const handleLogin = async (e) => {
+        e.preventDefault();
+
+        setError("");
+
+        try {
+            setLoading(true);
+
+            const data = await loginUser({
+                username: formData.username,
+                password: formData.password,
+            });
+
+            localStorage.setItem("access", data.access);
+            localStorage.setItem("refresh", data.refresh);
+
+            navigate("/");
+
+        } catch (err) {
+
+            if (err.response?.data?.detail) {
+                setError(err.response.data.detail);
+            } else {
+                setError("Login failed");
+            }
+
+        } finally {
+            setLoading(false);
+        }
+    };
+
     return (
         <div className="min-h-screen bg-slate-50 flex items-center justify-center px-6">
 
@@ -10,7 +53,7 @@ export default function Login() {
             <div className="absolute bottom-20 right-20 w-72 h-72 bg-purple-200 rounded-full blur-3xl opacity-40"></div>
 
             {/* Card */}
-            <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-xl p-10">
+            <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 border border-slate-100 p-10">
 
                 {/* Logo + Brand */}
                 <div className="flex flex-col items-center mb-8">
@@ -39,20 +82,28 @@ export default function Login() {
                     </h1>
 
                     <p className="text-slate-500 mt-1 text-sm text-center">
-                        Register and manage events effortlessly.
+                        Welcome back to Eventus
                     </p>
                 </div>
 
                 {/* Form */}
-                <form className="space-y-5">
+                <form onSubmit={handleLogin} className="space-y-5">
 
                     <div>
                         <label className="block text-sm font-medium text-slate-700 mb-2">
-                            Email Address
+                            Username
                         </label>
+
                         <input
-                            type="email"
-                            placeholder="you@example.com"
+                            type="text"
+                            placeholder="johndoe"
+                            value={formData.username}
+                            onChange={(e) =>
+                                setFormData({
+                                    ...formData,
+                                    username: e.target.value,
+                                })
+                            }
                             className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         />
                     </div>
@@ -61,18 +112,33 @@ export default function Login() {
                         <label className="block text-sm font-medium text-slate-700 mb-2">
                             Password
                         </label>
+
                         <input
                             type="password"
                             placeholder="••••••••"
+                            value={formData.password}
+                            onChange={(e) =>
+                                setFormData({
+                                    ...formData,
+                                    password: e.target.value,
+                                })
+                            }
                             className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-indigo-500"
                         />
                     </div>
 
+                    {error && (
+                        <div className="p-3 rounded-xl bg-red-50 border border-red-200 text-red-600 text-sm">
+                            {error}
+                        </div>
+                    )}
+
                     <button
                         type="submit"
-                        className="w-full py-3 rounded-xl text-white font-medium bg-gradient-to-r from-indigo-600 to-purple-600 hover:opacity-90 transition"
+                        disabled={loading}
+                        className="w-full py-3 rounded-xl text-white font-medium bg-gradient-to-r from-indigo-600 to-purple-600 hover:opacity-90 transition disabled:opacity-50"
                     >
-                        Sign In
+                        {loading ? "Signing In..." : "Sign In"}
                     </button>
 
                 </form>

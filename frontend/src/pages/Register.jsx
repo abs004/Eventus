@@ -66,8 +66,11 @@ export default function Register() {
 
     } catch (err) {
 
-      if (err.response?.data?.email) {
-        setError(err.response.data.email[0]);
+      const errors = err.response?.data;
+
+      if (errors) {
+        const firstError = Object.values(errors)[0];
+        setError(Array.isArray(firstError) ? firstError[0] : firstError);
       } else {
         setError("Registration failed");
       }
