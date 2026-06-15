@@ -10,3 +10,10 @@ dist/
 
 # Environment files
 .env
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Vite
+.vite
