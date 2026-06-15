@@ -8,7 +8,7 @@ export default function Navbar() {
                 <img
                     src={logo}
                     alt="Eventus"
-                     className="w-56 object-contain"
+                    className="w-16 object-contain"
                 />
                 <Link
                     to="/"

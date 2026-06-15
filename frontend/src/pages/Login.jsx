@@ -10,21 +10,35 @@ export default function Login() {
             <div className="absolute bottom-20 right-20 w-72 h-72 bg-purple-200 rounded-full blur-3xl opacity-40"></div>
 
             {/* Card */}
-            <div className="relative w-full max-w-md bg-white rounded-3xl shadow-xl border border-slate-100 p-10">
+            <div className="relative w-full max-w-lg bg-white rounded-3xl shadow-xl p-10">
 
-                {/* Logo */}
+                {/* Logo + Brand */}
                 <div className="flex flex-col items-center mb-8">
                     <img
                         src={logo}
-                        alt="Eventus"
-                        className="w-56 object-contain"
+                        alt="Eventus logo"
+                        style={{
+                            width: "80px",
+                            height: "80px",
+                            objectFit: "contain",
+                            objectPosition: "center",
+                            marginBottom: "-12px",
+                        }}
                     />
 
-                    <h1 className="mt-4 text-3xl font-bold tracking-tight text-slate-900">
+                    <h1
+                        className="text-2xl font-bold tracking-tight"
+                        style={{
+                            background: "linear-gradient(to right, #4f46e5, #9333ea)",
+                            WebkitBackgroundClip: "text",
+                            WebkitTextFillColor: "transparent",
+                            backgroundClip: "text",
+                        }}
+                    >
                         Eventus
                     </h1>
 
-                    <p className="text-slate-500 mt-2 text-center">
+                    <p className="text-slate-500 mt-1 text-sm text-center">
                         Register and manage events effortlessly.
                     </p>
                 </div>
@@ -36,7 +50,6 @@ export default function Login() {
                         <label className="block text-sm font-medium text-slate-700 mb-2">
                             Email Address
                         </label>
-
                         <input
                             type="email"
                             placeholder="you@example.com"
@@ -48,7 +61,6 @@ export default function Login() {
                         <label className="block text-sm font-medium text-slate-700 mb-2">
                             Password
                         </label>
-
                         <input
                             type="password"
                             placeholder="••••••••"
