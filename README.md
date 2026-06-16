@@ -85,28 +85,28 @@ https://eventus-grda.onrender.com
 
 ### Login Page
 
-![Login](screenshots/login.png)
+![Login](Screenshots/login.png)
 
 ### Register Page
 
-![Register](screenshots/register1.png)
-![Register](screenshots/register2.png)
+![Register](Screenshots/register1.png)
+![Register](Screenshots/register2.png)
 
 ### Events Page (Light Mode)
 
-![Events Light](screenshots/events-light.png)
+![Events Light](Screenshots/events-light.png)
 
 ### Events Page (Dark Mode)
 
-![Events Dark](screenshots/events-dark.png)
+![Events Dark](Screenshots/events-dark.png)
 
 ### Event Details
 
-![Event Details](screenshots/event-details.png)
+![Event Details](Screenshots/event-details.png)
 
 ### My Registrations
 
-![My Registrations](screenshots/my-registrations.png)
+![My Registrations](Screenshots/my-registrations.png)
 
 ---
 
@@ -202,7 +202,7 @@ Eventus
 │   ├── public
 │   └── ...
 │
-├── screenshots
+├── Screenshots
 │
 └── README.md
 ```
