@@ -147,7 +147,7 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "https://your-vercel-app.vercel.app",
+    "https://eventus-tau.vercel.app",
 ]
 
 
