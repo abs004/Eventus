@@ -186,20 +186,7 @@ export default function Events() {
 
             </main>
 
-            {/* Footer */}
-            <footer className="border-t border-gray-200 dark:border-slate-700 bg-white dark:bg-slate-900 mt-16">
-                <div className="max-w-7xl mx-auto px-6 py-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-                    <div className="flex items-center gap-2.5">
-                        <img
-                            src="/src/assets/logo.png"
-                            alt="Eventus"
-                            style={{ width: "20px", height: "20px", objectFit: "contain" }}
-                        />
-                        <span className="font-semibold text-gray-900 dark:text-white text-sm">Eventus</span>
-                    </div>
-                    <p className="text-xs text-gray-400 dark:text-slate-500">© 2026 Eventus. All rights reserved.</p>
-                </div>
-            </footer>
+
         </div>
     );
 }
