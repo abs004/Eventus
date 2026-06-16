@@ -1,6 +1,20 @@
 # Eventus
 
-A modern event registration platform built with React and Django REST Framework. Eventus allows users to browse events, view event details, register for events, and manage their registrations through a clean and responsive interface.
+A modern full-stack event registration platform built with React, Django REST Framework, and PostgreSQL.
+
+Users can browse events, view event details, register for events, and manage their registrations through a clean and responsive interface.
+
+## Live Demo
+
+### Frontend
+
+https://eventus-tau.vercel.app
+
+### Backend API
+
+https://eventus-grda.onrender.com
+
+---
 
 ## Features
 
@@ -24,47 +38,86 @@ A modern event registration platform built with React and Django REST Framework.
 
 * Responsive Design
 * Search Events
-* Event Status Badges
-* User Profile Dropdown
 * Dark Mode Support
 * Theme Persistence
+* Clean Modern UI
+
+### Admin Features
+
+* Django Admin Dashboard
+* Create Events
+* Edit Events
+* Delete Events
+* Manage Registrations
+
+---
 
 ## Tech Stack
 
 ### Frontend
 
 * React
-* React Router
+* React Router DOM
 * Axios
 * Tailwind CSS
+* Vite
 
 ### Backend
 
 * Django
 * Django REST Framework
-* JWT Authentication (Simple JWT)
+* Simple JWT Authentication
 * Django CORS Headers
 
-## Project Structure
+### Database
 
-```text
-Eventus
-├── backend
-│   ├── registrations
-│   ├── events
-│   ├── requirements.txt
-│   └── ...
-│
-├── frontend
-│   ├── src
-│   ├── public
-│   ├── package.json
-│   └── ...
-│
-└── README.md
-```
+* PostgreSQL
+
+### Deployment
+
+* Frontend: Vercel
+* Backend: Render
+* Database: Render PostgreSQL
+
+---
+
+## Screenshots
+
+### Login Page
+
+![Login](screenshots/login.png)
+
+### Register Page
+
+![Register](screenshots/register1.png)
+![Register](screenshots/register2.png)
+
+### Events Page (Light Mode)
+
+![Events Light](screenshots/events-light.png)
+
+### Events Page (Dark Mode)
+
+![Events Dark](screenshots/events-dark.png)
+
+### Event Details
+
+![Event Details](screenshots/event-details.png)
+
+### My Registrations
+
+![My Registrations](screenshots/my-registrations.png)
+
+---
 
 ## Installation
+
+### Clone Repository
+
+```bash
+git clone <your-repository-url>
+cd Eventus
+```
 
 ### Backend Setup
 
@@ -72,6 +125,8 @@ Eventus
 cd backend
 
 python -m venv venv
+
+# Windows
 venv\Scripts\activate
 
 pip install -r requirements.txt
@@ -79,6 +134,12 @@ pip install -r requirements.txt
 python manage.py migrate
 
 python manage.py runserver
+```
+
+Backend runs at:
+
+```text
+http://127.0.0.1:8000
 ```
 
 ### Frontend Setup
@@ -91,46 +152,72 @@ npm install
 npm run dev
 ```
 
+Frontend runs at:
+
+```text
+http://localhost:5173
+```
+
+---
+
 ## API Endpoints
 
 ### Authentication
 
-* POST /api/register/
-* POST /api/token/
+| Method | Endpoint            |
+| ------ | ------------------- |
+| POST   | /api/register/      |
+| POST   | /api/login/         |
+| POST   | /api/token/refresh/ |
 
 ### Events
 
-* GET /api/events/
-* GET /api/events/<id>/
-* POST /api/events/<id>/register/
+| Method | Endpoint                   |
+| ------ | -------------------------- |
+| GET    | /api/events/               |
+| GET    | /api/events/<id>/          |
+| POST   | /api/events/<id>/register/ |
 
 ### Registrations
 
-* GET /api/my-registrations/
+| Method | Endpoint               |
+| ------ | ---------------------- |
+| GET    | /api/my-registrations/ |
 
-## Screenshots
+---
 
-![Alt text](<Pasted image 20260616031104.png>)
-![Alt text](<Pasted image 20260616031235.png>)
-![Alt text](<Pasted image 20260616031357.png>)
-![Alt text](<Pasted image 20260616031407.png>)
-![Alt text](<Pasted image 20260616031414.png>)
+## Project Structure
 
-## Live Demo
+```text
+Eventus
+├── backend
+│   ├── accounts
+│   ├── events
+│   ├── registrations
+│   ├── requirements.txt
+│   └── ...
+│
+├── frontend
+│   ├── src
+│   ├── public
+│   └── ...
+│
+├── screenshots
+│
+└── README.md
+```
 
-Frontend:
-https://eventus-tau.vercel.app/
-
-Backend:
-https://eventus-grda.onrender.com/
+---
 
 ## Future Improvements
 
 * Event Categories
 * Registration Deadlines
 * Email Notifications
-* QR Code Tickets
-* Event Analytics Dashboard
+* Event Search Filters
+* User Profiles
+
+---
 
 ## Author
 
