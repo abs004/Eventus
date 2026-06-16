@@ -9,6 +9,8 @@ https://docs.djangoproject.com/en/5.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.2/ref/settings/
 """
+
+# pyrefly: ignore [missing-import]
 import dj_database_url
 import os
 from pathlib import Path
@@ -28,7 +30,7 @@ SECRET_KEY = 'django-insecure-vhfdly44=p%mv&9sn*j69$+5tt&qv6l8o=$v5&y4upem7v+*uv
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["eventus-grda.onrender.com"]
 
 
 # Application definition
@@ -144,9 +146,10 @@ SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
 
-#CORS_ALLOWED_ORIGINS = ["http://localhost:5173"]  
+CORS_ALLOWED_ORIGINS = [
+    "https://your-vercel-app.vercel.app",
+]
 
-CORS_ALLOW_ALL_ORIGINS = True
 
 CSRF_TRUSTED_ORIGINS = [
     "https://eventus-grda.onrender.com",

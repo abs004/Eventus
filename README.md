@@ -116,6 +116,13 @@ npm run dev
 ![Alt text](<Pasted image 20260616031407.png>)
 ![Alt text](<Pasted image 20260616031414.png>)
 
+## Live Demo
+
+Frontend:
+https://eventus-tau.vercel.app/
+
+Backend:
+https://eventus-grda.onrender.com/
 
 ## Future Improvements
 
